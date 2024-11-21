@@ -1,3 +1,4 @@
+import MergeFields from "./plugins/ckeditor5-merge-fields-plugin";
 import { StrapiMediaLib } from "./plugins/StrapiMediaLib";
 
 import MaximumLength from "../../vendor/ckeditor5-maximum-length/index";
@@ -77,7 +78,8 @@ const CKEDITOR_BASE_CONFIG_FOR_PRESETS = {
       TableColumnResize,
       TableCaption,
       WordCount,
-      StrapiMediaLib
+      StrapiMediaLib,
+      MergeFields
     ],
     toolbar: [
       'undo', 'redo',
@@ -88,7 +90,8 @@ const CKEDITOR_BASE_CONFIG_FOR_PRESETS = {
       '|',
       'link', 'strapiMediaLib', 'insertTable',
       '|',
-      'bulletedList', 'numberedList'
+      'bulletedList', 'numberedList',
+      'mergeFields'
     ],
     heading: {
       options: [
@@ -146,7 +149,8 @@ const CKEDITOR_BASE_CONFIG_FOR_PRESETS = {
       TableColumnResize,
       TableCaption,
       WordCount,
-      StrapiMediaLib
+      StrapiMediaLib,
+      MergeFields
     ],
     toolbar: [
         'undo', 'redo',
@@ -157,7 +161,8 @@ const CKEDITOR_BASE_CONFIG_FOR_PRESETS = {
         '|',
         'link', 'strapiMediaLib', 'mediaEmbed', 'blockQuote', 'insertTable', 'codeBlock',
         '|',
-        'bulletedList', 'numberedList', 'outdent', 'indent'
+        'bulletedList', 'numberedList', 'outdent', 'indent',
+        'mergeFields'
     ],
     heading: {
       options: [
@@ -240,7 +245,8 @@ const CKEDITOR_BASE_CONFIG_FOR_PRESETS = {
       TableCaption,
       WordCount,
       Highlight,
-      StrapiMediaLib
+      StrapiMediaLib,
+      MergeFields
     ],
     toolbar: {
       items: [
@@ -259,6 +265,7 @@ const CKEDITOR_BASE_CONFIG_FOR_PRESETS = {
         'alignment',
         '|',
         'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent',
+        'mergeFields'
       ],
       shouldNotGroupWhenFull: true
     },
