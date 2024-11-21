@@ -99,6 +99,7 @@ export default class MergeFields {
                                 background-color: #f5f5f5;
                                 border-bottom: 1px solid #ddd;
                                 margin-bottom: 5px;
+                                cursor:pointer
                             `
                         },
                         children: [
@@ -186,10 +187,10 @@ export default class MergeFields {
     
                     const arrowElement = headerView.element.querySelector("span:last-child")
                     const headerElement = headerView.element
+
                     
                     // Arrow toggle functionality
                     headerElement.addEventListener('click', () => {
-                        console.log("trigger");
                         
                         if (childContainer.element) {
     
