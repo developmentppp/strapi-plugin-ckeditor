@@ -18,8 +18,8 @@ export default class MergeFields {
         const queryParams = new URLSearchParams(window.top?.location?.search || window.location.search); // get QueryParams from top or window
         const token = queryParams.has("access_token") ? queryParams.get("access_token") : "";
 
-        const items = axios.get("/kosme-admin/kosme-clinic-backend/kos-placeholder", {
-            headers: {Authorization: `Bearer ${token}`}
+        const items = axios.get("https://10.234.10.205/kosme-admin/kosme-clinic-backend/kos-placeholder", {
+            headers: {Authorization: `Bearer AT-162-T7Iof6FiLyPrzqknbTlOdGBffwcUJx1X`}
         }).then(res =>{
             if (res.status === 200 && res?.data) {
                 const items = res.data?.data?.payload
@@ -184,10 +184,13 @@ export default class MergeFields {
            
                     listView.items.add(childContainer);
     
-                    const arrowElement = headerView.element.querySelector('span:last-child');
-                 
+                    const arrowElement = headerView.element.querySelector("span:last-child")
+                    const headerElement = headerView.element
+                    
                     // Arrow toggle functionality
-                    arrowElement.addEventListener('click', () => {
+                    headerElement.addEventListener('click', () => {
+                        console.log("trigger");
+                        
                         if (childContainer.element) {
     
                             const isVisible = childContainer.element.style.display === 'block';
