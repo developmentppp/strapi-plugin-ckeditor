@@ -15,7 +15,7 @@ export default class MergeFields {
     init() {
 
         const editor = this.editor;
-        const queryParams = new URLSearchParams(window.location.search);
+        const queryParams = new URLSearchParams(window.top?.location?.search || window.location.search); // get QueryParams from top or window
         const token = queryParams.has("access_token") ? queryParams.get("access_token") : "";
 
         const items = axios.get("/kosme-admin/kosme-clinic-backend/kos-placeholder", {
