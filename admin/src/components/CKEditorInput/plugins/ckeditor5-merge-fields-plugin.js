@@ -40,7 +40,7 @@ export default class MergeFields {
             const dropdownButton = new DropdownButtonView(locale);
             // Dropdown button configuration
             dropdownButton.set({
-                label: '$ Platzhalter',
+                label: '$ Sonderfeld',
                 withText: true,
                 tooltip: true,
             });
@@ -225,7 +225,7 @@ export default class MergeFields {
                         tag: 'input',
                         attributes: {
                             type: 'text',
-                            placeholder: 'Search...',
+                            placeholder: 'Suche...',
                             style: `
                                 width: 98%;
                                 padding: 8px 32px 8px 10px;
