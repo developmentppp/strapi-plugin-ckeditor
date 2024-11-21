@@ -1,10 +1,9 @@
 import React from 'react';
-import prefixFileUrlWithBackendUrl from '../../legacy-helper-plugin/prefixFileUrlWithBackendUrl';
+import { prefixFileUrlWithBackendUrl, useLibrary } from '@strapi/helper-plugin';
 import PropTypes from 'prop-types';
-import { useStrapiApp } from '@strapi/strapi/admin';
 
-const MediaLib = ( { isOpen = false, onChange = () => {}, onToggle = () => {} } ) => {
-  const { components } = useStrapiApp( 'library', app => app );
+const MediaLib = ( { isOpen, onChange, onToggle } ) => {
+  const { components } = useLibrary();
   const MediaLibraryDialog = components[ 'media-library' ];
 
   const handleSelectAssets = files => {
@@ -24,6 +23,12 @@ const MediaLib = ( { isOpen = false, onChange = () => {}, onToggle = () => {} } 
   return(
     <MediaLibraryDialog onClose={ onToggle } onSelectAssets={ handleSelectAssets } />
   );
+};
+
+MediaLib.defaultProps = {
+  isOpen: false,
+  onChange: () => {},
+  onToggle: () => {},
 };
 
 MediaLib.propTypes = {
