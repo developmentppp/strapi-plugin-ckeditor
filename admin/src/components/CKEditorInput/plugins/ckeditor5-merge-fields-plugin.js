@@ -99,7 +99,7 @@ export default class MergeFields {
                                 background-color: #f5f5f5;
                                 border-bottom: 1px solid #ddd;
                                 margin-bottom: 5px;
-                                cursor:pointer
+                                cursor: pointer;
                             `
                         },
                         children: [
@@ -111,7 +111,6 @@ export default class MergeFields {
                                 tag: 'span',
                                 attributes: {
                                     style: `
-                                        cursor: pointer;
                                         font-size: 12px;
                                         margin-left: auto;
                                     `
