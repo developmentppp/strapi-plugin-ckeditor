@@ -19,7 +19,7 @@ export default class MergeFields {
         const token = queryParams.has("access_token") ? queryParams.get("access_token") : "";
 
         const items = axios.get("/kosme-admin/kosme-clinic-backend/kos-placeholder?includeReportFields=false&includeMailFields=false", {
-            headers: {Authorization: `Bearer AT-75-0q84ewMMJdYrum-oJeasAHUPorIaHLcD`}
+            headers: {Authorization: `Bearer ${token}`}
         }).then(res =>{
             if (res.status === 200 && res?.data) {
                 const items = res.data?.data?.payload
