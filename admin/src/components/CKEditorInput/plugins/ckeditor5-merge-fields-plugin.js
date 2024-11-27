@@ -18,8 +18,8 @@ export default class MergeFields {
         const queryParams = new URLSearchParams(window.top?.location?.search || window.location.search); // get QueryParams from top or window
         const token = queryParams.has("access_token") ? queryParams.get("access_token") : "";
 
-        const items = axios.get("/kosme-clinic-backend/kos-placeholder?includeReportFields=false&includeMailFields=false", {
-            headers: {Authorization: `Bearer ${token}`}
+        const items = axios.get("/kosme-admin/kosme-clinic-backend/kos-placeholder?includeReportFields=false&includeMailFields=false", {
+            headers: {Authorization: `Bearer AT-75-0q84ewMMJdYrum-oJeasAHUPorIaHLcD`}
         }).then(res =>{
             if (res.status === 200 && res?.data) {
                 const items = res.data?.data?.payload
