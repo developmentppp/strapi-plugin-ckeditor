@@ -169,6 +169,7 @@ export default class MergeFields {
                                 const insertText = writer.createText(column.column);
                                 editor.model.insertContent(insertText);
                                 dropdown.isOpen = false;
+                                inputElement?.value = ""
                             });
                         });
 
