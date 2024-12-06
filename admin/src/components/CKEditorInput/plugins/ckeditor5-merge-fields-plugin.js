@@ -168,7 +168,19 @@ export default class MergeFields {
                             editor.model.change((writer) => {
                                 const insertText = writer.createText(column.column);
                                 editor.model.insertContent(insertText);
-                                dropdown.isOpen = false;
+                                dropdown.isOpen = false; // Close the dropdown
+                        
+                                // Clear the search query
+                                const searchInput = searchBox.element.querySelector('input');
+                                if (searchInput) {
+                                    searchInput.value = ''; 
+                                }
+                        
+                                // Reset the display of all buttons
+                                const allButtons = listView.element.querySelectorAll('button');
+                                allButtons.forEach((button) => {
+                                    button.style.display = ''; 
+                                });
                             });
                         });
 
