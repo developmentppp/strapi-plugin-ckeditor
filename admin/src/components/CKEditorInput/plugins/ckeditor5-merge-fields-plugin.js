@@ -162,8 +162,6 @@ export default class MergeFields {
                         // Append button to it container
                         childContainer.element.appendChild(buttonView.element);
                         
-                    
-                        // Handle the placeholder insertion on click
                          // Handle the placeholder insertion on click
                          buttonView.on('execute', () => {
                             editor.model.change((writer) => {
