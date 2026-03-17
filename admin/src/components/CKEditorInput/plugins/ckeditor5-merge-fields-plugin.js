@@ -15,14 +15,16 @@ export default class MergeFields {
     init() {
 
         const editor = this.editor;
-        const queryParams = new URLSearchParams(window.top?.location?.search || window.location.search); // get QueryParams from top or window
+        // Prefer the iframe's src (from the embedding document); fallback to current location when cross-origin
+        const iframeSrc = typeof window.frameElement?.src === "string" ? window.frameElement.src : window.top?.location?.href || window.location.href;
+        const queryParams = new URLSearchParams(new URL(iframeSrc).search);
         const token = queryParams.has("access_token") ? queryParams.get("access_token") : "";
 
-        const items = axios.get("/kosme-admin/kosme-clinic-backend/kos-placeholder", {
+        const items = axios.get("/kos-ng/backend/reporting/kos-api/v1/definitions/kos-me/placeholders", {
             headers: {Authorization: `Bearer ${token}`}
         }).then(res =>{
             if (res.status === 200 && res?.data) {
-                const items = res.data?.data?.payload
+                const items = res.data?.data;
                 return items
             }else {
                 return []
@@ -32,8 +34,6 @@ export default class MergeFields {
 
         // Add dropdown button to the toolbar
         editor.ui.componentFactory.add('mergeFields', (locale) => {
-          
-       
             const listView = new ListView(locale);
 
             // Dropdown button on which a click will open the dropdown list
@@ -76,6 +76,7 @@ export default class MergeFields {
             });
 
 
+            console.log("items", items);
             // Dropdown list items 
             items.then(placeholders => {
                 placeholders.forEach((tableEntry) => {
@@ -162,24 +163,13 @@ export default class MergeFields {
                         // Append button to it container
                         childContainer.element.appendChild(buttonView.element);
                         
-                         // Handle the placeholder insertion on click
-                         buttonView.on('execute', () => {
+                    
+                        // Handle the placeholder insertion on click
+                        buttonView.on('execute', () => {
                             editor.model.change((writer) => {
                                 const insertText = writer.createText(column.column);
                                 editor.model.insertContent(insertText);
-                                dropdown.isOpen = false; // Close the dropdown
-                        
-                                // Clear the search query
-                                const searchInput = searchBox.element.querySelector('input');
-                                if (searchInput) {
-                                    searchInput.value = ''; 
-                                }
-                        
-                                // Reset the display of all buttons
-                                const allButtons = listView.element.querySelectorAll('button');
-                                allButtons.forEach((button) => {
-                                    button.style.display = ''; 
-                                });
+                                dropdown.isOpen = false;
                             });
                         });
 
