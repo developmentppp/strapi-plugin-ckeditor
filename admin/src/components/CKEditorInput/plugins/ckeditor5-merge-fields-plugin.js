@@ -24,8 +24,8 @@ export default class MergeFields {
             headers: {Authorization: `Bearer ${token}`}
         }).then(res => {
             console.log("res", res);
-            if (res.status === 200 && res?.data) {
-                const items = res.data?.tables;
+            if (res.status === 200 && res?.data?.data) {
+                const items = (res.data?.data?.tables || []);
                 return items;
             }else {
                 return [];
