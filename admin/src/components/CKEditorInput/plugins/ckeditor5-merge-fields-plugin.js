@@ -22,7 +22,8 @@ export default class MergeFields {
 
         const items = axios.get("/kos-ng/backend/reporting/kos-api/v1/definitions/kos-me/placeholders", {
             headers: {Authorization: `Bearer ${token}`}
-        }).then(res =>{
+        }).then(res => {
+            console.log("res", res);
             if (res.status === 200 && res?.data) {
                 const items = res.data?.tables;
                 return items;
