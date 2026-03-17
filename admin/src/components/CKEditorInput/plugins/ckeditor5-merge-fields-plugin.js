@@ -24,10 +24,10 @@ export default class MergeFields {
             headers: {Authorization: `Bearer ${token}`}
         }).then(res =>{
             if (res.status === 200 && res?.data) {
-                const items = res.data?.data;
-                return items
+                const items = res.data?.tables;
+                return items;
             }else {
-                return []
+                return [];
             }
         })
 
@@ -75,10 +75,9 @@ export default class MergeFields {
                 }
             });
 
-
-            console.log("items", items);
             // Dropdown list items 
             items.then(placeholders => {
+                console.log("placeholders", placeholders);
                 placeholders.forEach((tableEntry) => {
                     // Container which contains the Dropdown list items group header
                     const categoryHeader = new ListItemView(locale);
