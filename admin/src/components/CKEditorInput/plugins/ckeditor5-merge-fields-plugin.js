@@ -23,7 +23,6 @@ export default class MergeFields {
         const items = axios.get("/kos-ng/backend/reporting/kos-api/v1/definitions/kos-me/placeholders", {
             headers: {Authorization: `Bearer ${token}`}
         }).then(res => {
-            console.log("res", res);
             if (res.status === 200 && res?.data?.data) {
                 const items = (res.data?.data?.tables || []);
                 return items;
@@ -78,7 +77,6 @@ export default class MergeFields {
 
             // Dropdown list items 
             items.then(placeholders => {
-                console.log("placeholders", placeholders);
                 placeholders.forEach((tableEntry) => {
                     // Container which contains the Dropdown list items group header
                     const categoryHeader = new ListItemView(locale);
